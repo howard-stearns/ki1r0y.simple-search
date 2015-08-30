@@ -26,6 +26,7 @@ function citationStorage(word, updater, cb) {
 }
 ```
 There are a series of callbacks back and forth between the original caller and the search functions, as follows:
+
 1. The application calls addCitations() or searchCitations().
 2. Search calls storage(word, updater, cb) to ask the caller to retrieve information about word (which is a string).
 3. The storage function should call updater(arrayOfIdtagsAssociatedWithWord, writerFunction). The array must be empty if word is unknown.
