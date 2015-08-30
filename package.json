@@ -1,0 +1,29 @@
+{
+    "name": "ki1r0y.simple-search",
+    "version": "1.0.0",
+    "description": "A very simple text search",
+    "keywords": ["text search"],
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/howard-stearns/ki1r0y.simple-search.git"
+    },
+    "author": "Howard Stearns",
+    "license": "Creative Commons 1.0 Universal",
+    "bugs": {
+        "url": "https://github.com/howard-stearns/ki1r0y.simple-search/issues"
+    },
+    "homepage": "https://github.com/howard-stearns/ki1r0y.simple-search",
+    "files": [
+        "index.js", "test/test.js"
+    ],
+    "dependencies": {
+        "async": "^1.0.0"
+    },
+    "devDependencies": {
+        "mocha": "^2.2.1"
+    }
+}
