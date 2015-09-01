@@ -1,42 +1,8 @@
 "use strict";
-/*jslint node: true, nomen: true, vars: true, plusplus: true, forin: true */
+/*jslint node: true, nomen: true, vars: true, plusplus: true, forin: true*/
+/*Copyright (c) 2013-2015 Howard Stearns. MIT License*/
 
 var async = require('async');
-
-/* 
-addCitations(idtag, text, optionalCallback)
-Notes that idtag is assocated with text. Both are strings. 
-If supplied, invokes optionalCallback(error) when done.
-
-searchCitations(text, callback)
-Invokes callback(error, arrayOfIdtags), where the array is an best-first ordered list of idtags that had previously been associated with the words of text.
-
-configure({storage, idtagExists}, cb)
-
-If idTagExists is supplied, searchCitations invokes it as idtagExists(idtag, cb) to asynchronously verify that idtag is still valid. Any for which cb(null, false) are removed from storage.
-
-The test suite has an example of an in-memory storage function. Here is an example storage function that uses ki1r0y.fs-store:
-    function citationStorage(word, updater, cb) {
-        var wordId = path.join(someRoot, someHash(word));
-        fs-store.update(wordId, [], updater, cb);  // fs-store.update does all work of steps 3 and 5, below.
-    }
-
-There are a series of callbacks back and forth between the original caller and the search functions, as follows:
-1. The application calls addCitations() or searchCitations().
-2. Search calls storage(word, updater, cb) to ask the caller to retrieve information about word (which is a string).
-3. The storage function should call updater(arrayOfIdtagsAssociatedWithWord, writerFunction). The array must be empty if word is unknown.
-4. Search calls writerFunction(error, newArrayOrUndefined, newArray) to store results.
-5. If newArrayOrUndefined is not undefined, writerFunction should store the array of idtags as being associated with word.
-   In any case, the writerFunction should then call cb(error, newArray).
-6. addCitations() or searchCitations() then invoke their callback(error) or callback(error, arrayOfIdtags), respectively
-
-The functions storage and idTagExists must be asynchronous (e.g., using setImmediate or nextTick if needed). writerFunction may be called synchronously or asynchronously.
-
-TODO: 
-Paged results in searchCitations.
-Stop words.
-Break text string into labeled facets.
-*/
 
 var config = {};
 // Specify properties: 
