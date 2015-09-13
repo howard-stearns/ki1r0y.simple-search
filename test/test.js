@@ -92,8 +92,9 @@ describe('search', function () {
         });
     });
     it('handles lots', function (done) {
-        var big = 10 * 1000, small = 1000;
-        this.timeout(small * 50);
+        var big = 10 * 1000, small = 500;
+        // Amazon microinstance file systems are really slow.
+        this.timeout((big * 2) + (small * 100));
         async.times(big, function (n, cb) {
             search.addCitations('t' + n, "some text", cb);
         }, function (error) {
